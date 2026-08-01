@@ -17,7 +17,7 @@ I choose this only because it was easy to build and i can get going and develop 
 First part of building the system. correctly implementing the screen is necessary. All the information we will calculate and measure throught out PIR sensor, UltraSonic Sensors, Gas and smoke, DHT22 will be displayed over the LCD Screen. A function is made, when called prints the passed argument in LCD two lines.
 The LCD dusplay has two lines to output to.
 
-![alt text](\images\image.png)
+![alt text](images\image.png)
 Here the components used till now are **ESP 32** and **LCD 16x2**.
 
 
@@ -26,9 +26,11 @@ Here the components used till now are **ESP 32** and **LCD 16x2**.
 Relay module is an electirc switch which helps of control the circuit being On/Off via code.
 Relay module is used as a switch, the IN of the relay is connected to a pin to a micro-processor or micro-controller.
 When the IN pin is high, the Normally-Open circuit performs, When the IN pin is LOW, the Normally-Closed Circuit performs.
---the COM is the common, 3.3v will be enough
+--the COM is the common, 3.3v will be enough.
 
-![alt text](\images\image1.png)
+the Relay is controlled via esp32, and its controlling conponents are connected via external battery source.
+
+![alt text](images\image1.png)
 
 ## Buzzer
 
@@ -36,7 +38,7 @@ when every a unauthorized access or any alert needs to be passed regarding tempa
 
 The buzzeer is a passive buzzer meaning it can be controlled with PWM, with two ways, an easier way - `tone(buzzer,1000)`, `noTone(buzzer)`, which is what i used bacause it recudes the complexity of the system, and logical operations to perform. 
 
-![alt text](\images\image2.png)
+![alt text](images\image2.png)
 
 ## RFID
 
@@ -44,7 +46,12 @@ Warehouse has to be secured, controling who can access andn who can't, for this 
 
 Only with the registered RFID tags authorized to access, the employeers can access the warehouse.
 
-![alt text](\images\image3.png)
+![alt text](images\image3.png)
+
+## Servo motor
+
+using servo motor to controll the warehouse door. Servo has three pins, VCC,GND, and PWM. I connected it with relay--the GND to external power source GND, and V+ to the NO(which ultimately completes the curcuit with external power source), and PWM to the ESP32 to send code on how much to open.
+![alt text](images\image4.png)
 
 ## Lets get Technical
 
