@@ -17,8 +17,23 @@ I choose this only because it was easy to build and i can get going and develop 
 First part of building the system. correctly implementing the screen is necessary. All the information we will calculate and measure throught out PIR sensor, UltraSonic Sensors, Gas and smoke, DHT22 will be displayed over the LCD Screen. A function is made, when called prints the passed argument in LCD two lines.
 The LCD dusplay has two lines to output to.
 
-![alt text](image.png)
+![alt text](\images\image.png)
 Here the components used till now are **ESP 32** and **LCD 16x2**.
 
 
-## RFID - 
+## Relay
+
+Relay module is an electirc switch which helps of control the circuit being On/Off via code.
+Relay module is used as a switch, the IN of the relay is connected to a pin to a micro-processor or micro-controller.
+When the IN pin is high, the Normally-Open circuit performs, When the IN pin is LOW, the Normally-Closed Circuit performs.
+--the COM is the common, 3.3v will be enough
+
+![alt text](\images\image1.png)
+
+## Buzzer
+
+when every a unauthorized access or any alert needs to be passed regarding temparature or humidity changes out of defined range, the buzzer plays.
+
+The buzzeer is a passive buzzer meaninh ot can be controlled with PWM, with two ways, an easier way - `tone(buzzer,1000)`, `noTone(buzzer)`, which is what i used bacause it recudes the complexity of the system, and logical operations to perform. 
+
+![alt text](\images\image2.png)
