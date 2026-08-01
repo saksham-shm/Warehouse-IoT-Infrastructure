@@ -34,6 +34,17 @@ When the IN pin is high, the Normally-Open circuit performs, When the IN pin is 
 
 when every a unauthorized access or any alert needs to be passed regarding temparature or humidity changes out of defined range, the buzzer plays.
 
-The buzzeer is a passive buzzer meaninh ot can be controlled with PWM, with two ways, an easier way - `tone(buzzer,1000)`, `noTone(buzzer)`, which is what i used bacause it recudes the complexity of the system, and logical operations to perform. 
+The buzzeer is a passive buzzer meaning it can be controlled with PWM, with two ways, an easier way - `tone(buzzer,1000)`, `noTone(buzzer)`, which is what i used bacause it recudes the complexity of the system, and logical operations to perform. 
 
 ![alt text](\images\image2.png)
+
+## RFID
+
+Warehouse has to be secured, controling who can access andn who can't, for this matter we use RFID, thus here RFID is implemented.
+
+Only with the registered RFID tags authorized to access, the employeers can access the warehouse.
+
+![alt text](\images\image3.png)
+
+## Lets get Technical
+
