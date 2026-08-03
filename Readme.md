@@ -53,5 +53,10 @@ Only with the registered RFID tags authorized to access, the employeers can acce
 using servo motor to controll the warehouse door. Servo has three pins, VCC,GND, and PWM. I connected it with relay--the GND to external power source GND, and V+ to the NO(which ultimately completes the curcuit with external power source), and PWM to the ESP32 to send code on how much to open.
 ![alt text](images\image4.png)
 
+## DHT 22
+
+The Warehouse surely stores many products, some need temperature control when storing in large amount and for a long period of time. To ensure the products doesn't go bad, we need to make sure the warehouse is always maintained in the prefered temperature. For doing so we need to monitor the warehouse continuously. DHT22, is a sensor that measure the temperature and humidity. Connect it to the micro-controller and you can monitor and act like wise, with the live temperature and humidity data collected from the DHT22 sensor
+![alt text](image.png)
+
 ## Lets get Technical
 
