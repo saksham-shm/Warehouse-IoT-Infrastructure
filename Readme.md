@@ -17,8 +17,9 @@ I choose this only because it was easy to build and i can get going and develop 
 First part of building the system. correctly implementing the screen is necessary. All the information we will calculate and measure throught out PIR sensor, UltraSonic Sensors, Gas and smoke, DHT22 will be displayed over the LCD Screen. A function is made, when called prints the passed argument in LCD two lines.
 The LCD dusplay has two lines to output to.
 
-![alt text](images/image.png)
-<img src="images/image.png" alt="Example Image" width="300" height="auto">
+
+<img src="images/image.png" alt="Example Image" width="450" height="auto"> </img>
+
 Here the components used till now are **ESP 32** and **LCD 16x2**.
 
 
@@ -31,7 +32,8 @@ When the IN pin is high, the Normally-Open circuit performs, When the IN pin is 
 
 the Relay is controlled via esp32, and its controlling conponents are connected via external battery source.
 
-![alt text](images/image1.png)
+<img src="images/image1.png" alt="Example Image" width="450" height="auto"> </img>
+
 
 ## Buzzer
 
@@ -39,7 +41,7 @@ when every a unauthorized access or any alert needs to be passed regarding tempa
 
 The buzzeer is a passive buzzer meaning it can be controlled with PWM, with two ways, an easier way - `tone(buzzer,1000)`, `noTone(buzzer)`, which is what i used bacause it recudes the complexity of the system, and logical operations to perform. 
 
-![alt text](images/image2.png)
+<img src="images/image2.png" alt="Example Image" width="450" height="auto"> </img>
 
 ## RFID
 
@@ -47,17 +49,19 @@ Warehouse has to be secured, controling who can access andn who can't, for this 
 
 Only with the registered RFID tags authorized to access, the employeers can access the warehouse.
 
-![alt text](images/image3.png)
+<img src="images/image3.png" alt="Example Image" width="450" height="auto"> </img>
 
 ## Servo motor
 
 using servo motor to controll the warehouse door. Servo has three pins, VCC,GND, and PWM. I connected it with relay--the GND to external power source GND, and V+ to the NO(which ultimately completes the curcuit with external power source), and PWM to the ESP32 to send code on how much to open.
-![alt text](images/image4.png)
+
+<img src="images/image4.png" alt="Example Image" width="450" height="auto"> </img>
 
 ## DHT 22
 
 The Warehouse surely stores many products, some need temperature control when storing in large amount and for a long period of time. To ensure the products doesn't go bad, we need to make sure the warehouse is always maintained in the prefered temperature. For doing so we need to monitor the warehouse continuously. DHT22, is a sensor that measure the temperature and humidity. Connect it to the micro-controller and you can monitor and act like wise, with the live temperature and humidity data collected from the DHT22 sensor
-![alt text](images/image5.png)
+
+<img src="images/image5.png" alt="Example Image" width="450" height="auto"> </img>
 
 ## Lets get Technical
 

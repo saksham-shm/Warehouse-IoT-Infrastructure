@@ -19,8 +19,9 @@ MFRC522 rfid(ssPin,rstPin);
 DHT dht1(dhtOne,dhtType);
 DHT dht2(dhtTwo,dhtType);
 
-// Relay Pins
+// Relay Pins, Buzzer pins, ServoPins
 const int relay1=25;
+const int relay2=26;
 const int buzzer=2;
 const int servopin=13;
 
@@ -45,6 +46,7 @@ void setup() {
   lcd.backlight();
   // Relay
   pinMode(relay1, OUTPUT);
+  pinMode(relay2,OUTPUT);
   // digitalWrite(relay1,LOW);
   // Buzzer
   pinMode(buzzer,OUTPUT);
@@ -101,13 +103,23 @@ void relayControl_Access(boolean value){
   }
 }
 
+void relayControl_light(boolean value){
+  if (value){
+    digitalWrite(relay2, HIGH);
+  }
+  else(){
+    digitalWrite(relay2, LOW);
+  }
+
+}
+
 
 void RFIDAccepted(String accessedby){
   writetoLCD("Accessed by: ",accessedby);
   relayControl_Access(true);
   servo1.write(90);
   buzzerAccept();
-  delay(5000);
+  delay(10000);
   servo1.write(0);
   
 }
@@ -148,15 +160,14 @@ void readDHT(float dhtData[]){
 
 void loop() {
   Serial.println("New Porcess");
-  // writetoLCD("Chemmical Hazard","Move Out");
-  // delay(2000);
+
   float reading[6];
   if (millis() - lastSensorRead >= sensorInterval ){
 
     lastSensorRead = millis();
     readDHT(reading);
-  String output1 = "H1:" + String(reading[0],1) + "%";
-  String output2 = "H2:" + String(reading[1],1) + "%";
+  String output1 = "H1:" + String(reading[0],1) + "%" +"T1:"+String(reading[2],1)+"°C" ;
+  String output2 = "H2:" + String(reading[1],1) + "%"+"T2:"+String(reading[3],1)+"°C";
     writetoLCD(output1, output2);
   }
 
@@ -200,8 +211,5 @@ void loop() {
  
   Serial.println("End of line");
   rfid.PICC_HaltA();
-  // delay(3000);
-
-  
 
 }
