@@ -1,0 +1,184 @@
+{
+  "version": 1,
+  "author": "Saksham Sedhai",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": -364.8,
+      "left": -225.56,
+      "attrs": {}
+    },
+    { "type": "wokwi-lcd1602", "id": "lcd1", "top": -368, "left": 44, "attrs": { "pins": "i2c" } },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay1",
+      "top": -279,
+      "left": -406.4,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led2",
+      "top": -288.8,
+      "left": -507.4,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    { "type": "board-mfrc522", "id": "rfid1", "top": -194.65, "left": 41.84, "attrs": {} },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -105.6,
+      "left": -220.8,
+      "rotate": 180,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -250.4,
+      "left": -526.6,
+      "rotate": 270,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-servo",
+      "id": "servo1",
+      "top": -71,
+      "left": -421.4,
+      "rotate": 90,
+      "attrs": { "horn": "double" }
+    },
+    { "type": "wokwi-vcc", "id": "vcc1", "top": -383.24, "left": -614.4, "attrs": {} },
+    { "type": "wokwi-gnd", "id": "gnd1", "top": -182.4, "left": -615, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -681.3,
+      "left": -283.8,
+      "attrs": { "temperature": "-9.4", "humidity": "77" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht2",
+      "top": -700.5,
+      "left": -139.8,
+      "attrs": { "humidity": "15.5" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relay2",
+      "top": -461.4,
+      "left": -464,
+      "rotate": 180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led3",
+      "top": -480.8,
+      "left": -613,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led7",
+      "top": -442.4,
+      "left": -613,
+      "rotate": 270,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-gas-sensor",
+      "id": "gas1",
+      "top": -647.2,
+      "left": -448.3,
+      "rotate": 90,
+      "attrs": {}
+    },
+    { "type": "wokwi-pir-motion-sensor", "id": "pir1", "top": -658.4, "left": 21.42, "attrs": {} },
+    {
+      "type": "wokwi-led",
+      "id": "led4",
+      "top": -509.6,
+      "left": -661,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led5",
+      "top": -528.8,
+      "left": -699.4,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led6",
+      "top": -557.6,
+      "left": -718.6,
+      "rotate": 270,
+      "attrs": { "color": "green" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.2", "black", [ "h0" ] ],
+    [ "esp:3V3", "lcd1:VCC", "red", [ "h-19.05", "v-38.4", "h259.2", "v48", "h9.6" ] ],
+    [ "esp:25", "relay1:IN", "green", [ "v0" ] ],
+    [ "relay1:GND", "esp:CMD", "black", [ "h38.4", "v77.2" ] ],
+    [ "esp:CMD", "bz1:1", "black", [ "h-28.65", "v38.4", "h76.8" ] ],
+    [ "bz1:2", "esp:2", "red", [ "v-19.2", "h96.4", "v-76.8", "h-9.6" ] ],
+    [ "relay1:NC", "led1:A", "blue", [ "v0" ] ],
+    [ "rfid1:GND", "esp:GND.3", "black", [ "h-67.2", "v-172.8" ] ],
+    [ "lcd1:SDA", "esp:21", "blue", [ "h-28.8", "v29" ] ],
+    [ "lcd1:SCL", "esp:22", "gold", [ "h-38.4", "v-9.3" ] ],
+    [ "rfid1:3.3V", "esp:3V3", "red", [ "h-115.2", "v-288", "h-182.4", "v38.4" ] ],
+    [ "rfid1:RST", "esp:4", "gold", [ "h-96", "v-115.2" ] ],
+    [ "rfid1:MISO", "esp:19", "green", [ "h-57.6", "v-144" ] ],
+    [ "rfid1:MOSI", "esp:23", "#8f4814", [ "h-48", "v-192" ] ],
+    [ "rfid1:SCK", "esp:18", "gold", [ "h-38.4", "v-115.2" ] ],
+    [ "rfid1:SDA", "esp:5", "blue", [ "h-28.8", "v-96" ] ],
+    [ "relay1:VCC", "esp:3V3", "red", [ "h28.8", "v-96" ] ],
+    [ "led2:A", "relay1:NO", "green", [ "h0" ] ],
+    [ "vcc1:VCC", "relay1:COM", "red", [ "v28.8" ] ],
+    [ "led2:C", "gnd1:GND", "black", [ "v66.8", "h-48" ] ],
+    [ "led1:C", "gnd1:GND", "black", [ "h9.6", "v28.4", "h-38.4" ] ],
+    [ "servo1:GND", "gnd1:GND", "black", [ "v0" ] ],
+    [ "relay1:NO", "servo1:V+", "red", [ "h0" ] ],
+    [ "servo1:PWM", "esp:13", "blue", [ "v0" ] ],
+    [ "dht1:VCC", "esp:3V3", "red", [ "v0", "h-19.2", "v163.2" ] ],
+    [ "dht2:VCC", "esp:3V3", "red", [ "v48", "h-163.2", "v124.8" ] ],
+    [ "dht1:GND", "esp:GND.2", "black", [ "v0", "h192", "v163.2" ] ],
+    [ "dht2:GND", "esp:GND.2", "black", [ "v0", "h48", "v192" ] ],
+    [ "dht2:SDA", "esp:17", "violet", [ "v220.8", "h0.1", "v67.2" ] ],
+    [ "dht1:SDA", "esp:16", "green", [ "v48", "h153.7", "v19.2", "v268.8" ] ],
+    [ "relay2:IN", "esp:26", "green", [ "h67.2", "v0.2", "h38.4", "v192" ] ],
+    [ "relay2:VCC", "esp:3V3", "red", [ "h67.2", "v86.4" ] ],
+    [ "relay2:GND", "esp:CMD", "black", [ "h76.8", "v259.6" ] ],
+    [ "relay2:COM", "vcc1:VCC", "red", [ "h-39.6", "v78.2" ] ],
+    [ "led3:C", "gnd1:GND", "black", [ "h19.2", "v239.6", "h-48" ] ],
+    [ "relay2:NC", "led7:A", "red", [ "v0" ] ],
+    [ "led7:C", "gnd1:GND", "black", [ "h0", "v201.2", "h-28.8" ] ],
+    [ "gas1:VCC", "vcc1:VCC", "red", [ "v28.8", "h-133.5", "v172.8", "h-144", "v-9.6" ] ],
+    [ "gas1:GND", "gnd1:GND", "black", [ "v9.6", "h-162.4", "v326.4", "h-57.6" ] ],
+    [ "gas1:DOUT", "esp:34", "blue", [ "v9.6", "h57.9", "v240", "h9.6" ] ],
+    [ "pir1:GND", "esp:GND.2", "black", [ "v96", "h-86.66", "v134.4" ] ],
+    [ "pir1:VCC", "esp:5V", "red", [ "v115.2", "h-96", "v441.6", "h-230.4", "v-153.6" ] ],
+    [ "pir1:OUT", "esp:32", "blue", [ "v86.4", "h-307.34", "v201.6" ] ],
+    [ "relay2:NO", "led4:A", "red", [ "h-1.2", "v-46.2" ] ],
+    [ "led3:A", "relay2:NO", "red", [ "h0", "v-19.2", "h124.8" ] ],
+    [ "led4:C", "gnd1:GND", "black", [ "h0", "v297.2" ] ],
+    [ "led5:A", "relay2:NO", "red", [ "h211.2" ] ],
+    [ "led6:A", "relay2:NO", "red", [ "h0", "v-28.8", "h230.4" ] ],
+    [ "led6:C", "gnd1:GND", "black", [ "h0", "v9.2", "h-19.2", "v336" ] ],
+    [ "led5:C", "gnd1:GND", "black", [ "h0", "v124.4", "h-19.2", "v192" ] ]
+  ],
+  "dependencies": {}
+}
